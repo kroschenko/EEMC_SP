@@ -33,6 +33,28 @@
 \usepackage{longtable}% Эту команду не стоит менять
 
 \usepackage{regexpatch}
+\usepackage{listings}
+\definecolor{keyword}{RGB}{0,0,150}
+\definecolor{identifier}{RGB}{0,0,0}
+\definecolor{comment}{RGB}{128,128,128}
+\definecolor{string}{RGB}{0,128,0}
+\definecolor{numbers}{RGB}{128,128,128}
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C++,
+  showstringspaces=false,
+  basicstyle=\small\ttfamily,
+  numberstyle=\color{numbers},
+  keywordstyle=\bfseries\color{keyword},
+  commentstyle=\itshape\color{comment},
+  identifierstyle=\color{identifier},
+  stringstyle=\color{string},
+}
+\lstset{escapechar=@,style=customc}
 \makeatletter
 \xpatchcmd*\@Overlay@Hook{\put(\strip@pt\@tempdima,\strip@pt\@tempdima)}
 {\put(\strip@pt\@tempdima,\strip@pt\dimexpr.5\paperheight)}{}{}
@@ -554,7 +576,7 @@ $\sim$, который называют неразрывным пробелом)
 \section{Справочная информация}
 
 Этот параграф можно назвать как угодно. Мы установим на первую страницу этого параграфа
-метку , которая является <<мишенью>> Вашей кнопки на интерактивной панели
+метку \label{mybutton}, которая является <<мишенью>> Вашей кнопки на интерактивной панели
 (описание процесса ее создания смотрите выше в комментариях).
 \begin{enumerate}% Эта команда начинает список
    \item Важная информация.
@@ -572,7 +594,7 @@ $\sim$, который называют неразрывным пробелом)
 \addcontentsline{toc}{struct}{Вопросы и задания для самоконтроля}% Эта команда
 % добавляет название раздела в раздел <<Содержание>>
 
-Здесь можете \label{mybutton}привести список вопросов и заданий для самоконтроля:
+Здесь можете привести список вопросов и заданий для самоконтроля:
 \begin{enumerate}% Эта команда начинает список
    \item Вопрос или задание.
    \item Вопрос или задание.
